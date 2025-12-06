@@ -1,8 +1,8 @@
-# 🌙 Turkuaz — A Romantic 2D Point-and-Click Adventure
+# 🌙 Turkuaz — A 2D Point-and-Click Adventure
 
 **Turkuaz** is a 2D **point-and-click narrative adventure** following the emotional and atmospheric night journey of **Esra** and **Görkem**.
 
-Players explore hand-crafted pixel art scenes, collect interactive objects, solve inventory-based puzzles, and progress through a dialogue-driven story shaped by intimate moments and atmospheric storytelling.
+Players explore hand-crafted pixel art scenes, collect interactive objects, combine objects to solve inventory-based puzzles, and progress through a dialogue-driven story shaped by intimate moments and atmospheric storytelling.
 
 ---
 
@@ -26,22 +26,13 @@ Players explore hand-crafted pixel art scenes, collect interactive objects, solv
 
 ---
 
-## 📦 Project Structure
-
-```
-Assets/
-ProjectSettings/
-Packages/
-```
-
----
-
 ## 🛠️ Technologies
 
 * Unity Librarys (2D URP)
 * C# scripting
-* Aseprite
-
+* Aseprite (pixel arts)
+* Audacity (audio design)
+* Phone microphone, Free audio librarys (Pixabay/FreeSound/YoutubeMusic) (audio creation)
 ---
 
 ## 📜 License

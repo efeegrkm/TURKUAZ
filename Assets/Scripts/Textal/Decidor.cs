@@ -51,8 +51,12 @@ public class Decidor
                 B_ClickDetector.instance.NotifyActionFinished();
                 break;
             case "GORKEM_SPEAK_LB":
-                Debug.Log("Gorkem_LB Dialogue triggered");
-                //Dialogues.Instance.StartDialogue("Gorkem_LB");
+                Dialogues.Instance.StartDialogue("Gorkem_LB");
+                B_ClickDetector.instance.NotifyActionFinished();
+                break;
+            case "GORKEM_SHOW_CAVE_RB":
+                Dialogues.Instance.StartDialogue("ShowCaveToGorkem");
+                ActionMethots.Instance.caveShown = true;
                 B_ClickDetector.instance.NotifyActionFinished();
                 break;
             case "NO_ACTION":

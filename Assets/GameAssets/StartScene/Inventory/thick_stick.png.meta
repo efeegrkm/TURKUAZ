@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e1e49bc0a3642be4cbebb1c858425e83
+guid: 6302e68a1f1c07b468875858d391eb06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8152291512753534652
-    second: TorchHandle_0
+      213: -7706547502497663402
+    second: thick_stick_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TorchHandle_0
+      name: thick_stick_0
       rect:
         serializedVersion: 2
-        x: 319
-        y: 669
-        width: 552
-        height: 232
+        x: 1289
+        y: 379
+        width: 3962
+        height: 3562
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 449c4e4df0e3dde80800000000000000
-      internalID: -8152291512753534652
+      spriteID: 656f3f4a0e7dc0590800000000000000
+      internalID: -7706547502497663402
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      TorchHandle_0: -8152291512753534652
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

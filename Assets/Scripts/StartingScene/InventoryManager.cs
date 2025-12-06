@@ -234,5 +234,52 @@ public class InventoryManager : MonoBehaviour
         FGL.enabled = true;
         FGR.enabled = true;
     }
+
+    public bool UseItemWith(int inventoryPoolIndex)
+    {
+        if (inventoryPoolIndex < 0 || inventoryPoolIndex >= itemPool.Length)
+        {
+            Debug.LogWarning("InventoryManager: Geçersiz itemPoolIndex sorgusu.");
+            return false;
+        }
+        InventoryItem targetItem = itemPool[inventoryPoolIndex];
+        if (targetItem == null) return false;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && !slots[i].IsEmpty())
+            {
+                if (slots[i].item.itemName == targetItem.itemName)
+                {
+                    Debug.Log($"Auto-used item: {targetItem.itemName} from slot {i}");
+
+                    slots[i].ClearItem();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public bool HasItem(int inventoryPoolIndex)
+    {
+        if (inventoryPoolIndex < 0 || inventoryPoolIndex >= itemPool.Length)
+        {
+            Debug.LogWarning("InventoryManager: Geçersiz itemPoolIndex sorgusu.");
+            return false;
+        }
+        InventoryItem targetItem = itemPool[inventoryPoolIndex];
+        if (targetItem == null) return false;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && !slots[i].IsEmpty())
+            {
+                if (slots[i].item.itemName == targetItem.itemName)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 

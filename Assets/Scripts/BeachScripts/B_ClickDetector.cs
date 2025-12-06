@@ -21,7 +21,7 @@ public class B_ClickDetector : MonoBehaviour
     [Header("Clickable Objects")]
     [SerializeField] private List<ClickableZone> clickableZones = new();
 
-    private Queue<Dialogue> dialogueQueue = new();
+    
     private ScriptPrinter printer;
     private InventoryManager im;
 
@@ -58,7 +58,7 @@ public class B_ClickDetector : MonoBehaviour
             {
                 handleDecisionFlags();
                 if (!printer.dialogueWriting)
-                    NextDialogue();
+                    Dialogues.Instance.NextDialogue();
                 return;
             }
             if (actionInProgress) return;
@@ -78,7 +78,7 @@ public class B_ClickDetector : MonoBehaviour
                         new Decidor("Gorkeme seslen.", "GORKEM_SPEAK_LB", "NO_ACTION");
                         break;
                     case 1:
-
+                        new Decidor("Gorkem'i cagir.", "GORKEM_SHOW_CAVE_RB", "NO_ACTION");
                         break;
                 }
 
@@ -122,39 +122,6 @@ public class B_ClickDetector : MonoBehaviour
     {
         actionInProgress = false;
     }
-
-    // --- DIALOGUE SYSTEM ---
-    public void EnqueueDialogue(Dialogue d)
-    {
-        dialogueQueue.Enqueue(d);
-    }
-
-    public void EnqueueDialogueList(Dialogue[] dList)
-    {
-        foreach (var d in dList)
-            dialogueQueue.Enqueue(d);
-    }
-
-    private void NextDialogue()
-    {
-        if (dialogueQueue.Count > 0)
-        {
-            Dialogue next = dialogueQueue.Dequeue();
-            printer.PrintDialogue(next.speaker, next.content, 20, Color.white, 0.02f);
-            CheckDialogueTriggeredAction(next);
-        }
-        else
-        {
-            printer.closeDialogue();
-            printer.dialogueActive = false;
-        }
-    }
-
-    private void CheckDialogueTriggeredAction(Dialogue dial)
-    {
-        // Dialogue-triggered events buraya
-    }
-
     public void SetInputState(bool active)
     {
         isInputActive = active;

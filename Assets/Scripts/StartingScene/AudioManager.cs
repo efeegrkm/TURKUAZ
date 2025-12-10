@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Build;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager am;
+    public static AudioManager Instance;
     public ScriptPrinter sp;
     public static int cdCount = 2;
     public AudioSource ambianceSource;
@@ -39,13 +37,13 @@ public class AudioManager : MonoBehaviour
 
     public void Awake()
     {
-        if(am != null)
+        if(Instance != null)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            am = this;
+            Instance = this;
         }
     }
     public void nextMusic()

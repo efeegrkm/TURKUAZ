@@ -13,6 +13,7 @@ public class B_ClickDetector : MonoBehaviour
         public string name;
         public Collider2D collider;
         public UnityEvent action;
+        public List<int> actionAccaptenceLevels = new();
     }
 
     [Header("Settings")]
@@ -28,6 +29,7 @@ public class B_ClickDetector : MonoBehaviour
     private Camera mainCamera;
 
     public bool actionInProgress = false;
+    public bool extra = false;
 
     private void Awake()
     {
@@ -57,7 +59,11 @@ public class B_ClickDetector : MonoBehaviour
             if (printer.dialogueActive)
             {
                 handleDecisionFlags();
-                if (!printer.dialogueWriting)
+                if(printer.dialogueWriting)
+                {
+                    printer.SkipTyping();
+                }
+                else
                     Dialogues.Instance.NextDialogue();
                 return;
             }
@@ -67,6 +73,13 @@ public class B_ClickDetector : MonoBehaviour
     }
     private void handleDecisionFlags()
     {
+        if(extra)
+        {
+            extra = false;
+            new Decidor("Ben de seni seviyorum canim :)", "METO", "METOM");
+            ActionMethots.Instance.extraFinish = true;
+            return;
+        }
         for (int i = 0; i < decisionFlags.Length; i++)
         {
             if (decisionFlags[i])
@@ -93,24 +106,37 @@ public class B_ClickDetector : MonoBehaviour
         {
             if (zone.collider != null && zone.collider.OverlapPoint(worldPoint))
             {
-                StartCoroutine(HandleZoneAction(zone.action));
+                if(isActionPermited(zone.actionAccaptenceLevels))
+                    StartCoroutine(HandleZoneAction(zone.action));
                 return;
             }
         }
-        im.selectedSlot = null;
-        im.UpdateSelectionUI();
+        cleanInventorySelection();
     }
-
+    private bool isActionPermited(List<int> actionLevels)
+    {
+        int currentLevel = ActionMethots.Instance.actionLevel;
+        if (actionLevels == null)
+        {
+            Debug.Log("Null action level.");
+            return false;
+        }
+        if (actionLevels.Count == 0)
+        {
+            Debug.Log("No permited action level.");
+            return false;
+        }
+        foreach(int level in actionLevels)
+        {
+            if (level == currentLevel)
+                return true;
+        }
+        return false;
+    }
     // ACTION WRAPPER — bütün actionlar buradan geçer
     private IEnumerator HandleZoneAction(UnityEvent action)
     {
         actionInProgress = true;
-
-        // Action bir coroutine tetikliyorsa coroutine bitene kadar beklemek için:
-        // UnityEvent maalesef direkt coroutine döndüremez,
-        // bu yüzden kullanıcı coroutinelerini ActionManager gibi dış scriptlerde koşturur.
-        // Burada sadece küçük bir gecikme laiss edelim (opsiyonel).
-        // Eğer action coroutine tetikletiyorsa OnActionFinished() manuel çağrılacak.
 
         action.Invoke();
 
@@ -125,5 +151,10 @@ public class B_ClickDetector : MonoBehaviour
     public void SetInputState(bool active)
     {
         isInputActive = active;
+    }
+    private void cleanInventorySelection()
+    {
+        im.selectedSlot = null;
+        im.UpdateSelectionUI();
     }
 }

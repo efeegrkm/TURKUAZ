@@ -82,6 +82,12 @@ public class ScriptPrinter : MonoBehaviour
         dialogueWriting = false;
         dialogueActive = true;
     }
+    public void SkipTyping()
+    {
+        StopAllCoroutines();
+        TextSpace.text = dialogueText;
+        dialogueWriting = false;
+    }
     public void closeDialogue()
     {
         Dialogue.SetActive(false);

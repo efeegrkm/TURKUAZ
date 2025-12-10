@@ -51,7 +51,7 @@ public class Decidor
                 B_ClickDetector.instance.NotifyActionFinished();
                 break;
             case "GORKEM_SPEAK_LB":
-                Dialogues.Instance.StartDialogue("Gorkem_LB");
+                Dialogues.Instance.StartDialogue("Gorkem_LB1");
                 B_ClickDetector.instance.NotifyActionFinished();
                 break;
             case "GORKEM_SHOW_CAVE_RB":
@@ -59,8 +59,19 @@ public class Decidor
                 ActionMethots.Instance.caveShown = true;
                 B_ClickDetector.instance.NotifyActionFinished();
                 break;
-            case "NO_ACTION":
+            case "METO":
+                ScriptPrinter.Instance.PrintDialogue("ESRA", "Ben de seni cok seviyorum bebegim.", 20, Color.white, 0.02f);
                 B_ClickDetector.instance.NotifyActionFinished();
+                break;
+            case "METOM":
+                ScriptPrinter.Instance.PrintDialogue("ESRA", "Sana deli asigim ne sevmesi:)", 20, Color.white, 0.02f);
+                B_ClickDetector.instance.NotifyActionFinished();
+                break;
+            case "NO_ACTION":
+                if(B_ClickDetector.instance != null)
+                {
+                    B_ClickDetector.instance.NotifyActionFinished();
+                }
                 break;
         }
     }

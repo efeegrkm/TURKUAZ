@@ -110,6 +110,15 @@ public class ClickDetector : MonoBehaviour
     private bool[] dmFlags = new bool[3] { false, false, false };
 
     public Canvas inventoryCanvas;
+
+    [SerializeField] Collider2D LighterCol;
+    [SerializeField] GameObject Lighter;
+    [SerializeField] Collider2D BlanketCol;
+    [SerializeField] GameObject Blanket;
+    bool blanketOpen = false;
+    public bool LighterTaken = false;
+    [SerializeField] AudioClip BlanketAudio;
+    [SerializeField] AudioClip BookOpenSFX;
     private void Awake()
     {
         if(ClickDetectorInstance == null)
@@ -307,6 +316,54 @@ public class ClickDetector : MonoBehaviour
         }
         if (!bookMode)
         {
+            if(ActionMethots.Instance != null && ActionMethots.Instance.actionLevel == 4)
+            {
+                if (BlanketCol.OverlapPoint(worldPoint))
+                {
+                    if (blanketOpen)
+                    {
+                        blanketOpen = false;
+                        Blanket.SetActive(false);
+                        am.PlaySFX(BlanketAudio);
+                    }
+                    else
+                    {
+                        printer.PrintDialogue("SYSTEM", "Battaniye acildi.", 20, Color.white, 0.02f);
+                        am.PlaySFX(BlanketAudio);
+                        blanketOpen = true;
+                        Blanket.SetActive(true);
+                    }
+                }
+                if (LighterCol.OverlapPoint(worldPoint))
+                {
+                    if (!LighterTaken)
+                    {
+                        LighterTaken = true;
+                        Lighter.SetActive(false);
+                        im.AddToInventory(7);
+                        printer.PrintDialogue("SYSTEM", "Çakmak bulundu.", 20, Color.white, 0.02f);
+                        ActionMethots.Instance.actionLevel = 5;
+                        am.PlaySFX(clickSound);
+                    }
+                    else
+                    {
+                        if (blanketOpen)
+                        {
+                            blanketOpen = false;
+                            Blanket.SetActive(false);
+                            am.PlaySFX(BlanketAudio);
+                        }
+                        else
+                        {
+                            printer.PrintDialogue("SYSTEM", "Battaniye acildi.", 20, Color.white, 0.02f);
+                            am.PlaySFX(BlanketAudio);
+                            blanketOpen = true;
+                            Blanket.SetActive(true);
+                        }
+                    }
+                }
+            }
+            
             if (rightFrontSeatCol.OverlapPoint(worldPoint))
             {
                 if(carLighted == false && seatChangable == true)
@@ -368,7 +425,7 @@ public class ClickDetector : MonoBehaviour
                     musicboxSprite.sprite = sp2;
                     am.musicSource.Pause();
                     am.PlaySFX(CDput);
-                    am.displayMusicInfo("/");//To clear music info.
+                    am.displayMusicInfo("/");
                     yield return new WaitForSeconds(1f);
                     inv1();
                 }
@@ -517,12 +574,26 @@ public class ClickDetector : MonoBehaviour
                         printer.PrintDialogue("ESRA", "Sahile inen patika... Sahile inmeden önce Gorkemi uyandirmaliyim.", 20, Color.white, 0.02f);
                         break;
                     case 3:
-                        printer.PrintDialogue("ESRA", "Sahile inmeden once kitap sayfalarini eklemeyi tercih ederim. Ama baska zaman da yapabilirim.", 20, Color.white, 0.02f);
-                        dmFlags[0] = true;
+                        if(ActionMethots.Instance == null)
+                        {
+                                printer.PrintDialogue("ESRA", "Sahile inmeden once kitap sayfalarini eklemeyi tercih ederim. Ama baska zaman da yapabilirim.", 20, Color.white, 0.02f);
+                            dmFlags[0] = true;
+                        }
+                        else
+                        {
+                            new Decidor("Sahile inilsin mi?", "GO_BEACH_SCENE", "NO_ACTION");
+                        }
                         break;
                     case 4:
-                        printer.PrintDialogue("ESRA", "Kitap sayfalarini ekledigime gore artik sahile inebilirim... Gorkem beni bekliyor.", 20, Color.white, 0.02f);
-                        dmFlags[1] = true;
+                        if (ActionMethots.Instance == null)
+                        {
+                            printer.PrintDialogue("ESRA", "Kitap sayfalarini ekledigime gore artik sahile inebilirim... Gorkem beni bekliyor.", 20, Color.white, 0.02f);
+                            dmFlags[1] = true;
+                        }
+                        else
+                        {
+                            new Decidor("Sahile inilsin mi?", "GO_BEACH_SCENE", "NO_ACTION");
+                        }
                         break;
                 }
             }
@@ -566,6 +637,7 @@ public class ClickDetector : MonoBehaviour
             }
             else
             {
+                am.PlaySFX(bookOpen);
                 book.SetActive(true);
                 if (bookManager.currentPage == BookManager.maxPage - 1)
                 {
@@ -612,7 +684,7 @@ public class ClickDetector : MonoBehaviour
         d[4] = new Dialogue("Biraz dolandirildik gibi OSTIM'de sanki.d", "ESRA");
         d[5] = new Dialogue("Canim sag olsun", "GORKEM");
         d[6] = new Dialogue("Olsun askim:)", "ESRA");
-        d[7] = new Dialogue("En iyi aldigimiz ikinci en iyi karar neymis?(Birinci bariz gibi)", "ESRA");
+        d[7] = new Dialogue("En iyi aldigimiz ikinci en iyi karar neymis?(Birinci bariz)", "ESRA");
         d[8] = new Dialogue("Hmhm", "GORKEM");
         d[9] = new Dialogue("Evin garajinda Wall-e'mizi yapmak tabi ki", "GORKEM");
         d[10] = new Dialogue("MDOEKDOEEKOEKEEKEK evet o da barizmiþ", "ESRA");
@@ -647,11 +719,11 @@ public class ClickDetector : MonoBehaviour
         d[8] = new Dialogue("Ne demek istiyorsun?", "ESRA");
         d[9] = new Dialogue("Her sey guzel basladi. Sakin bi aksamda arabada muzik dinliyorduk. Hatta ne tesaduftur... Manifestlioduk.", "GORKEM");
         d[10] = new Dialogue("Arabadan disari adim attigimda seni kaybettim. Bacaklarým tutmuyordu. Hintce fisiltilar her yanimi sardi kulagim çýnlýyordu...", "GORKEM");
-        d[11] = new Dialogue("Çýnlamalar yavas yavas boguk cigliklarina donustu. Arabanin altina saklanmistin. Cadirda saklaniyor ustune sur ez sunu diye bana bagiriyor deli gibi agliyordun", "GORKEM");
-        d[12] = new Dialogue("Tam ne oldugunu anlamaya calisirken ayagima pasli bir kanca saplandi. Beni ucurumdan assagiya denizin icine dogru cekmeye basladi.", "GORKEM");
+        d[11] = new Dialogue("Sonra ciglik atmaya basladin. Arabanin altina saklanmistin. Cadirda saklaniyor ustune sur ez sunu diye bana bagiriyor deli gibi agliyordun", "GORKEM");
+        d[12] = new Dialogue("Tam ne oldugunu anlamaya calisirken ayagima bi kanca saplandi. Beni ucurumdan assagiya denizin icine dogru cekmeye basladi.", "GORKEM");
         d[13] = new Dialogue("Hintli sisman korsani iste o an gordum.", "GORKEM");
-        d[14] = new Dialogue("Hayal gucune hayranim da arabada uyukalmissin muhtemelen oyuzden ruyani arabayla ve burasiyla bagdastirmissin.", "ESRA");
-        d[15] = new Dialogue("Evet iste de ne bileyim arabanýn etrafinda biseyler var gibi hissediyorum kancasinin arabama surtus sesini duyuyor gibi oluyorum. Uyandigimdan beri cadir korkunc gozukuyor gozume.", "GORKEM");
+        d[14] = new Dialogue("Arabada uyukalmak sana yaramio askm bu nasi ruya dfhgjdhsjf.", "ESRA");
+        d[15] = new Dialogue("Evet iste de ne bileyim arabanýn etrafinda biseyler var gibi hissediyorum kancasinin arabama surtus sesini duyuyor gibi oluyorum.", "GORKEM");
         d[16] = new Dialogue("Bi deniz havasi alsak iyi gelir sana eminim. Yildizlar da çok guzel hava mukemmel gel biraz kafan dagilsin.", "ESRA");
         d[17] = new Dialogue("Ama once...", "ESRA");
         d[18] = new Dialogue("Gel biraz sarilalim:)", "ESRA");

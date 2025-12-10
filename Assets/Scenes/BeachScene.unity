@@ -643,84 +643,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109189467}
   m_CullTransparentMesh: 1
---- !u!1 &123756141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 123756143}
-  - component: {fileID: 123756142}
-  m_Layer: 0
-  m_Name: GoToVanCol
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &123756142
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123756141}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -58.236137, y: 3.3855934}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 13.472321, y: 80.959404}
-  m_EdgeRadius: 0
---- !u!4 &123756143
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123756141}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 561478060}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164088915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2123,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1639436786}
-  - {fileID: 1486442839}
   m_Father: {fileID: 937508141176542861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538986174
@@ -2386,10 +2307,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 123756143}
   - {fileID: 1643455200}
   - {fileID: 1988869881}
-  - {fileID: 1421608808}
+  - {fileID: 1379472190}
   m_Father: {fileID: 4693858661490437712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &576650808
@@ -2401,7 +2321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 576650810}
-  - component: {fileID: 576650809}
+  - component: {fileID: 576650811}
   m_Layer: 0
   m_Name: torchSlotCol
   m_TagString: Untagged
@@ -2409,8 +2329,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &576650809
-BoxCollider2D:
+--- !u!4 &576650810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576650808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2027174602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &576650811
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2443,7 +2378,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 14.823021, y: -1.9859767}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2453,23 +2388,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.967304, y: 6.189905}
-  m_EdgeRadius: 0
---- !u!4 &576650810
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576650808}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2027174602}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 17.219248, y: 1.0024056}
+      - {x: 15.6767025, y: 1.0553753}
+      - {x: 13.847352, y: 4.807896}
+      - {x: 10.332445, y: 3.938152}
+      - {x: 10.722345, y: -1.1544533}
+      - {x: 13.436918, y: -7.0668154}
+      - {x: 15.345677, y: -6.5654216}
+      - {x: 15.655016, y: -5.093366}
+      - {x: 17.272615, y: -5.0523057}
+  m_UseDelaunayMesh: 0
 --- !u!1 &596675040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2878,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 716913591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1545048993}
+        m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
+        m_MethodName: goToRightBeach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &716913591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4542,7 +4484,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1177053139}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1545048993}
+        m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
+        m_MethodName: handleLeftTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1177053139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,7 +5174,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363999154}
   m_CullTransparentMesh: 1
---- !u!1 &1421608807
+--- !u!1 &1379472189
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5228,22 +5182,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1421608808}
-  - component: {fileID: 1421608809}
+  - component: {fileID: 1379472190}
+  - component: {fileID: 1379472191}
   m_Layer: 0
-  m_Name: RightBeachCol
+  m_Name: WrongStickCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1421608808
+--- !u!4 &1379472190
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421608807}
+  m_GameObject: {fileID: 1379472189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -5252,13 +5206,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 561478060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1421608809
+--- !u!61 &1379472191
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421608807}
+  m_GameObject: {fileID: 1379472189}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -5286,7 +5240,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 58.231667, y: 3.0939083}
+  m_Offset: {x: -10.996701, y: -11.067642}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5296,86 +5250,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 9.273346, y: 79.666}
+  m_Size: {x: 13.628462, y: 4.972993}
   m_EdgeRadius: 0
---- !u!1 &1486442837
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1486442839}
-  - component: {fileID: 1486442838}
-  m_Layer: 0
-  m_Name: BackToLeftBeachCol
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &1486442838
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486442837}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -57.07427, y: 2.2557106}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 9.984032, y: 79.32322}
-  m_EdgeRadius: 0
---- !u!4 &1486442839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486442837}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 527500062}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500715875
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,23 +5600,6 @@ MonoBehaviour:
   decisionFlags: 00000000000000000000
   isInputActive: 1
   clickableZones:
-  - name: Back to van
-    collider: {fileID: 123756142}
-    action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1545048993}
-          m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
-          m_MethodName: GoToVanScene
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - name: Interact with Gorkem front boat
     collider: {fileID: 1988869882}
     action:
@@ -5758,6 +5617,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    actionAccaptenceLevels: 000000000100000002000000030000000400000005000000
   - name: Boat Paddles
     collider: {fileID: 1643455201}
     action:
@@ -5775,23 +5635,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: Go to right beach
-    collider: {fileID: 1421608809}
-    action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1545048993}
-          m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
-          m_MethodName: goToRightBeach
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    actionAccaptenceLevels: 000000000100000002000000030000000400000005000000
   - name: Collect cloth
     collider: {fileID: 1505337585}
     action:
@@ -5809,6 +5653,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    actionAccaptenceLevels: 02000000
   - name: Collect stick 1
     collider: {fileID: 1075214675}
     action:
@@ -5826,6 +5671,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    actionAccaptenceLevels: 02000000
   - name: Collect stick 2
     collider: {fileID: 538986176}
     action:
@@ -5843,6 +5689,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    actionAccaptenceLevels: 02000000
   - name: Enter cave
     collider: {fileID: 1639436785}
     action:
@@ -5860,25 +5707,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: BackToLeftBeach
-    collider: {fileID: 1486442838}
-    action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1545048993}
-          m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
-          m_MethodName: goToLeftBeach
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    actionAccaptenceLevels: 0100000002000000030000000400000005000000
   - name: TorchSlot
-    collider: {fileID: 576650809}
+    collider: {fileID: 576650811}
     action:
       m_PersistentCalls:
         m_Calls:
@@ -5894,6 +5725,43 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    actionAccaptenceLevels: 0100000002000000030000000400000005000000
+  - name: WrongStick1
+    collider: {fileID: 1379472191}
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1545048993}
+          m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
+          m_MethodName: wrongStick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionAccaptenceLevels: 02000000030000000400000005000000
+  - name: WrongStick2
+    collider: {fileID: 5371689272770684203}
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1545048993}
+          m_TargetAssemblyTypeName: ActionMethots, Assembly-CSharp
+          m_MethodName: wrongStick2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionAccaptenceLevels: 02000000030000000400000005000000
   actionInProgress: 0
 --- !u!114 &1545048992
 MonoBehaviour:
@@ -5930,6 +5798,9 @@ MonoBehaviour:
   TorchLight: {fileID: 1759239800}
   gorkemLookingCave: {fileID: 0}
   caveShown: 0
+  RightShade: {fileID: 716913588}
+  clickSFX: {fileID: 8300000, guid: 4ba1a2219d5049e4dac526f9591c702c, type: 3}
+  actionLevel: 0
 --- !u!114 &1545048994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6480,7 +6351,7 @@ Transform:
   m_GameObject: {fileID: 1759239800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000020907, z: 0}
+  m_LocalPosition: {x: 12.03, y: 2.41, z: 0}
   m_LocalScale: {x: 1.0171797, y: 1.0171797, z: 1.0171797}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6552,12 +6423,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 18
-  m_Sprite: {fileID: 21300000, guid: bbe984a2b4c031f49b614849878f2323, type: 3}
+  m_Sprite: {fileID: -7001704534635950435, guid: bbe984a2b4c031f49b614849878f2323, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 64, y: 42}
+  m_Size: {x: 2.72, y: 2.9199998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7506,6 +7377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937508141176542861}
+  - component: {fileID: 5371689272770684203}
   m_Layer: 0
   m_Name: RightBeachScene
   m_TagString: Untagged
@@ -7513,6 +7385,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!61 &5371689272770684203
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371689272770684202}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -21.473778, y: -11.104593}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 20.708817, y: 8.79528}
+  m_EdgeRadius: 0
 --- !u!20 &5523756375953628239
 Camera:
   m_ObjectHideFlags: 0

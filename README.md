@@ -22,7 +22,7 @@ Players explore hand-crafted pixel art scenes, collect interactive objects, comb
 ## 🤝 Contributors
 **Efe Görkem Akkanat**
 
-**Esra Yılmaz** — with all my love ❤️
+**Esra Yılmaz** ❤️
 
 ---
 
